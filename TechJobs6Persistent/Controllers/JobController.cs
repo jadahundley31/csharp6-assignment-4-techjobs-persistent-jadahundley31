@@ -26,17 +26,27 @@ namespace TechJobs6Persistent.Controllers
         {
             List<Job> jobs = context.Jobs.Include(j => j.Employer).ToList();
 
+
+
             return View(jobs);
         }
 
         public IActionResult Add()
         {
-            return View();
+            static AddJobViewModel addJobViewModel(JobDbContext context)
+            {
+                List<Employer> employerInfo = context.Employers.ToList();
+                return;
+
+            }
+
+            return View(addJobViewModel);
         }
 
         [HttpPost]
-        public IActionResult ProcessAddJobForm()
+        public IActionResult Add(AddJobViewModel addJobViewModel)
         {
+            
             return View();
         }
 

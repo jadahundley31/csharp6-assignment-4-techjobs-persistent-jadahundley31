@@ -1,4 +1,6 @@
 ﻿using System;
+
+
 namespace TechJobs6Persistent.Models
 {
     public class Employer
@@ -16,6 +18,9 @@ namespace TechJobs6Persistent.Models
 
         public Employer()
         {
+
         }
+
+        public List<Job> jobs { get; set; }
     }
 }

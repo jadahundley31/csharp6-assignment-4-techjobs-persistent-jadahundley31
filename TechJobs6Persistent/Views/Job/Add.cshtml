@@ -1,5 +1,5 @@
 ﻿@using TechJobs6Persistent.ViewModels
-
+@model TechJobs6Persistent.ViewModels.AddJobViewModel
 
 <h1>Add Job</h1>
 
@@ -9,7 +9,17 @@
         <input class="form-control" />
         <span></span>
     </div>
+
     <br />
+
+    <div class="form-group">
+        <label>Employer</label>
+        <input class="form-control" />
+        <select name="employerInfo">
+            <option value="JobId"></option>
+        </select>
+        <a href="/Employer/Create">Add Employer</a>
+    </div>
 
     <input type="submit" value="Add Job" />
 </form>
