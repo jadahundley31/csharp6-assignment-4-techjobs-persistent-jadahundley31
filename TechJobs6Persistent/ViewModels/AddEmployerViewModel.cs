@@ -4,7 +4,7 @@ using TechJobs6Persistent.Models;
 
 namespace TechJobs6Persistent.ViewModels
 {
-	public class AddEmployerViewModel : Employer
+	public class AddEmployerViewModel
 	{
 		[Required(ErrorMessage = "Name is required.")]
 		[StringLength(50)]

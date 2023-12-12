@@ -21,6 +21,6 @@ namespace TechJobs6Persistent.Models
 
         }
 
-        public List<Job> jobs { get; set; }
+        public List<Job> Jobs { get; set; }
     }
 }

@@ -48,12 +48,11 @@ namespace TechJobs6Persistent.Controllers
                 jobDatabase.Employers.Add(employer);
 
                 jobDatabase.SaveChanges();
+
+                return Redirect("/Employer");
             }
-            else
-            {
-                return Redirect("/Employer/Create");
-            }
-            return RedirectToAction("Index");
+            
+            return View("Create", addEmployerViewModel);
         }
 
         public IActionResult About(int id)

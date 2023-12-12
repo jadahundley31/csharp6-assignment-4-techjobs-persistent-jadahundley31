@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TechJobs6Persistent.Data;
 using TechJobs6Persistent.Models;
@@ -31,14 +32,12 @@ namespace TechJobs6Persistent.Controllers
             return View(jobs);
         }
 
+        [HttpGet]
         public IActionResult Add()
         {
-            static AddJobViewModel addJobViewModel(JobDbContext context)
-            {
-                List<Employer> employerInfo = context.Employers.ToList();
-                return;
+            List<Employer> employers = context.Employers.ToList();
 
-            }
+            AddJobViewModel addJobViewModel = new AddJobViewModel(employers);
 
             return View(addJobViewModel);
         }
@@ -46,8 +45,18 @@ namespace TechJobs6Persistent.Controllers
         [HttpPost]
         public IActionResult Add(AddJobViewModel addJobViewModel)
         {
-            
-            return View();
+            if (ModelState.IsValid)
+            {
+                Job jobs = new Job { Name = addJobViewModel.Name, EmployerId = addJobViewModel.EmployerId};
+
+                context.Jobs.Add(jobs);
+
+                context.SaveChanges();
+
+                return Redirect("/Job");
+            }
+
+            return View("Add", addJobViewModel);
         }
 
         public IActionResult Delete()
