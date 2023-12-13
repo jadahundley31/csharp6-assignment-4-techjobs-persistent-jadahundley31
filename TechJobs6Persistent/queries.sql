@@ -3,18 +3,20 @@
 
 
 --Part 1: List the columns and their data types in the Jobs table.
-     Columns:
-        Id: int AI PK
-        Name: longtext
-        EmployerId: int
+    /*describe TechJob.Jobs;*/
     
 
 --Part 2: Write a query to list the names of the employers in St. Louis City.
-    CREATE TABLE employers
-    name VARCHAR(255)
-    location VARCHAR(255)
+    /*SELECT Employer.Name
+      FROM Employer
+      WHERE Location = "St. Louis";
+    */
 
 --Part 3: Write a query to return a list of the names and descriptions of all skills that are attached to jobs in alphabetical order.
     --If a skill does not have a job listed, it should not be included in the results of this query.
-    UPDATE skills
-    SET name = ORDER BY NAME
+    /*SELECT DISTINCT Skills.SkillName 
+      FROM Skills
+      INNER JOIN JobSkills ON Skills.Id = JobSkills.SkillsId
+      WHERE Skills.SkillName is not null
+      ORDER BY Skills.SkillName ASC
+     */
